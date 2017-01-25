@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>    
+    <data>
+        <template id="report_payment">
+            <t t-call="report.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t><style>
+                        </style>
+                        <div class="page" style="font-size: 18px; width: 100%;">
+                            <h2 style="text-align: center; line-height: 100px;">Voucher No. <span t-field="o.name"/></h2>
+                            <div style="width: 50%;float: left;">
+                                <strong>Company</strong>:
+                                <span t-field="o.company_id.name"/><br/>
+                                <strong>Nit. </strong> 
+                                <span t-field="o.company_id.partner_id.xidentification"/>
+                            </div>
+                            <div style="width: 50%;float: left;">
+                                <strong>Client</strong>:
+                                <span t-field="o.partner_id.name"/><br/>
+                                <strong>C.c.</strong>
+                                <span t-field="o.partner_id.xidentification"/>
+                                
+                            </div>
+
+                            <div style="line-height: 90px;">
+                                <div style="width: 50%;float: left;">
+                                    <strong style="float:left">Payment Method: </strong>:
+                                    <span t-field="o.journal_id"/>
+                                </div>
+                                <div style="width: 50%;float: left;">
+                                    <strong>Amount Paid</strong>
+                                    <span t-field="o.amount"/>
+                                </div>
+                            </div>
+                            <div>
+                                <strong>Facturas</strong>
+                                
+                                <table class="table table-condensed mb32" style="border:1px solid #000000">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <strong>Number Invoice</strong>
+                                            </th>
+                                            <th>
+                                                <strong>Total Invoice</strong>
+                                            </th>
+                                            <th class="text-right">
+                                                <strong>Amount Paid</strong>
+                                            </th>
+                                            <th class="text-right">
+                                                <strong>Balance</strong>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody style="border:1px solid #000000">
+                                        <tr t-foreach="o.invoice_ids" t-as="facturas">
+                                            <td><span t-field="facturas.number"/></td>
+                                            <td><span t-field="facturas.amount_total"/></td>
+                                            <td class="text-right">
+                                                <t t-set="payments" t-value="facturas.amount_total - facturas.residual"/>
+                                                <span t-esc="payments" t-esc-options='{"widget": "monetary", "display_currency": "o.currency_id"}'/>
+                                            </td>
+                                            <td class="text-right">
+                                               <span t-field="facturas.residual"/>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+            
+                            </div>
+                            <div style="line-height: 2; padding-top: 74px;">
+                                <div style="width: 50%;float: left;">
+                                    <strong>_____________________________________</strong><br/>
+                                    <span t-field="o.create_uid.name"/><br/>
+                                    <strong>Produced By</strong> 
+                                </div>
+                                <div style="width: 50%;float: left;">
+                                    <strong>______________________________________</strong><br/>
+                                    <span t-field="o.partner_id.name"/><br/>
+                                    <strong>Beneficiary</strong>
+                                </div>
+                            </div>
+                                    
+                        </div>
+                        
+                    </t>
+                </t>
+            </t>
+        </template>
+
+
+        <report id="action_report_payment" model="account.payment" report_type="qweb-pdf" name="account_payment_receipt.report_payment" string="Comprobante" file="report_payment"/>
+    </data>
+
+
+
+</openerp>

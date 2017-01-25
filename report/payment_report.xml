@@ -9,13 +9,13 @@
                         <div class="page" style="font-size: 18px; width: 100%;">
                             <h2 style="text-align: center; line-height: 100px;">Voucher No. <span t-field="o.name"/></h2>
                             <div style="width: 50%;float: left;">
-                                <strong>Company</strong>:
+                                <strong>Company</strong>:<br/>
                                 <span t-field="o.company_id.name"/><br/>
                                 <strong>Nit. </strong> 
                                 <span t-field="o.company_id.partner_id.xidentification"/>
                             </div>
                             <div style="width: 50%;float: left;">
-                                <strong>Client</strong>:
+                                <strong>Client</strong>:<br/>
                                 <span t-field="o.partner_id.name"/><br/>
                                 <strong>C.c.</strong>
                                 <span t-field="o.partner_id.xidentification"/>
@@ -33,7 +33,7 @@
                                 </div>
                             </div>
                             <div>
-                                <strong>Facturas</strong>
+                                <strong>Invoices</strong>
                                 
                                 <table class="table table-condensed mb32" style="border:1px solid #000000">
                                     <thead>

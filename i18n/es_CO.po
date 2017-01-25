@@ -1,0 +1,105 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* account_payment_receipt
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 9.0c-20161205\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-01-25 16:35+0000\n"
+"PO-Revision-Date: 2017-01-25 16:35+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: account_payment_receipt
+#: model:ir.ui.view,arch_db:account_payment_receipt.report_payment
+msgid "<br/>\n"
+"                                    <strong>Beneficiary</strong>"
+msgstr "<br/>\n"
+"                                    <strong>Beneficiario</strong>"
+
+#. module: account_payment_receipt
+#: model:ir.ui.view,arch_db:account_payment_receipt.report_payment
+msgid "<br/>\n"
+"                                    <strong>Produced By</strong>"
+msgstr "<br/>\n"
+"                                    <strong>Elaborado Por</strong>"
+
+#. module: account_payment_receipt
+#: model:ir.ui.view,arch_db:account_payment_receipt.report_payment
+msgid "<br/>\n"
+"                                <strong>C.c.</strong>"
+msgstr "<br/>\n"
+"                                <strong>C.c.</strong>"
+
+#. module: account_payment_receipt
+#: model:ir.ui.view,arch_db:account_payment_receipt.report_payment
+msgid "<br/>\n"
+"                                <strong>Nit. </strong>"
+msgstr "<br/>\n"
+"                                <strong>Nit. </strong>"
+
+#. module: account_payment_receipt
+#: model:ir.ui.view,arch_db:account_payment_receipt.report_payment
+msgid "<strong style=\"float:left\">Payment Method: </strong>:"
+msgstr "<strong style=\"float:left\">Metodo de Pago</strong>:"
+
+#. module: account_payment_receipt
+#: model:ir.ui.view,arch_db:account_payment_receipt.report_payment
+msgid "<strong>Amount Paid</strong>"
+msgstr "<strong>Total a Pagado</strong>"
+
+#. module: account_payment_receipt
+#: model:ir.ui.view,arch_db:account_payment_receipt.report_payment
+msgid "<strong>Balance</strong>"
+msgstr "<strong>Saldo</strong>"
+
+#. module: account_payment_receipt
+#: model:ir.ui.view,arch_db:account_payment_receipt.report_payment
+msgid "<strong>Client</strong>:<br/>"
+msgstr "<strong>Cliente</strong>:<br/>"
+
+#. module: account_payment_receipt
+#: model:ir.ui.view,arch_db:account_payment_receipt.report_payment
+msgid "<strong>Company</strong>:<br/>"
+msgstr "<strong>Compañía</strong>:<br/>"
+
+#. module: account_payment_receipt
+#: model:ir.ui.view,arch_db:account_payment_receipt.report_payment
+msgid "<strong>Invoices</strong>"
+msgstr "<strong>Facturas</strong>"
+
+#. module: account_payment_receipt
+#: model:ir.ui.view,arch_db:account_payment_receipt.report_payment
+msgid "<strong>Number Invoice</strong>"
+msgstr "<strong>Número de Factura</strong>"
+
+#. module: account_payment_receipt
+#: model:ir.ui.view,arch_db:account_payment_receipt.report_payment
+msgid "<strong>Total Invoice</strong>"
+msgstr "<strong>Total Factura</strong>"
+
+#. module: account_payment_receipt
+#: model:ir.ui.view,arch_db:account_payment_receipt.report_payment
+msgid "<strong>_____________________________________</strong><br/>"
+msgstr "<strong>_____________________________________</strong><br/>"
+
+#. module: account_payment_receipt
+#: model:ir.ui.view,arch_db:account_payment_receipt.report_payment
+msgid "<strong>______________________________________</strong><br/>"
+msgstr "<strong>______________________________________</strong><br/>"
+
+#. module: account_payment_receipt
+#: model:ir.actions.report.xml,name:account_payment_receipt.action_report_payment
+msgid "Comprobante"
+msgstr "Comprobante"
+
+#. module: account_payment_receipt
+#: model:ir.ui.view,arch_db:account_payment_receipt.report_payment
+msgid "Voucher No."
+msgstr "Comprobante No."
+

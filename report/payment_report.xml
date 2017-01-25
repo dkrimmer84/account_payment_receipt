@@ -12,13 +12,13 @@
                                 <strong>Company</strong>:<br/>
                                 <span t-field="o.company_id.name"/><br/>
                                 <strong>Nit. </strong> 
-                                <span t-field="o.company_id.partner_id.xidentification"/>
+                                <span t-field="o.company_id.partner_id.xidentification"/>-<span t-field="o.company_id.partner_id.dv"/>
                             </div>
                             <div style="width: 50%;float: left;">
                                 <strong>Client</strong>:<br/>
                                 <span t-field="o.partner_id.name"/><br/>
                                 <strong>C.c.</strong>
-                                <span t-field="o.partner_id.xidentification"/>
+                                <span t-field="o.partner_id.xidentification"/>-<span t-field="o.partner_id.dv"/>
                                 
                             </div>
 

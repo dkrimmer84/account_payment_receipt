@@ -16,17 +16,25 @@
                                     <span t-field="o.company_id.partner_id.xidentification"/>-<span t-field="o.company_id.partner_id.dv"/>
                                 </t>
                             </div>
-                            <div style="width: 50%;float: left;">
-                                <strong>Client</strong>:<br/>
-                                <span t-field="o.partner_id.name"/><br/>
-                                <t t-if="o.company_id.partner_id.xidentification">
-                                    <strong>C.c.</strong>
-                                    <span t-field="o.partner_id.xidentification"/>
-                                    <t t-if="o.partner_id.doctype == 31">
-                                        -<span t-field="o.partner_id.dv"/>
-                                    </t>
-                                </t>
+                            <t t-if="o.payment_type == 'transfer'">
+                                <div style="width: 50%;float: left;">
+                                <strong>Transfer to:</strong>:<br/>
+                                <span t-field="o.destination_journal_id"/><br/>
                             </div>
+                            </t>
+                            <t t-if="o.payment_type != 'transfer'">
+                                <div style="width: 50%;float: left;">
+                                    <strong>Client</strong>:<br/>
+                                    <span t-field="o.partner_id.name"/><br/>
+                                    <t t-if="o.company_id.partner_id.xidentification">
+                                        <strong>C.c.</strong>
+                                        <span t-field="o.partner_id.xidentification"/>
+                                        <t t-if="o.partner_id.doctype == 31">
+                                            -<span t-field="o.partner_id.dv"/>
+                                        </t>
+                                    </t>
+                                </div>
+                            </t>
                             <div style="line-height: 90px;">
                                 <div style="width: 50%;float: left;">
                                     <strong style="float:left">Payment Method: </strong>:
@@ -37,53 +45,65 @@
                                     <span t-field="o.amount"/>
                                 </div>
                             </div>
-                            <div>
-                                <strong>Invoices</strong>
-                                
-                                <table class="table table-condensed mb32" style="border:1px solid #000000">
-                                    <thead>
-                                        <tr>
-                                            <th>
-                                                <strong>Number Invoice</strong>
-                                            </th>
-                                            <th>
-                                                <strong>Total Invoice</strong>
-                                            </th>
-                                            <th class="text-right">
-                                                <strong>Amount Paid</strong>
-                                            </th>
-                                            <th class="text-right">
-                                                <strong>Balance</strong>
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody style="border:1px solid #000000">
-                                        <tr t-foreach="o.invoice_ids" t-as="facturas">
-                                            <td><span t-field="facturas.number"/></td>
-                                            <td><span t-field="facturas.amount_total"/></td>
-                                            <td class="text-right">
-                                                <t t-set="payments" t-value="facturas.amount_total - facturas.residual"/>
-                                                <span t-esc="payments" t-esc-options='{"widget": "monetary", "display_currency": "o.currency_id"}'/>
-                                            </td>
-                                            <td class="text-right">
-                                               <span t-field="facturas.residual"/>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-            
-                            </div>
+                            <t t-if="o.invoice_ids">
+                                <div>
+
+                                    <strong>Invoices</strong>
+                                    
+                                    <table class="table table-condensed mb32" style="border:1px solid #000000">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    <strong>Number Invoice</strong>
+                                                </th>
+                                                <th>
+                                                    <strong>Total Invoice</strong>
+                                                </th>
+                                                <th class="text-right">
+                                                    <strong>Amount Paid</strong>
+                                                </th>
+                                                <th class="text-right">
+                                                    <strong>Balance</strong>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody style="border:1px solid #000000">
+                                            <tr t-foreach="o.invoice_ids" t-as="facturas">
+                                                <td><span t-field="facturas.number"/></td>
+                                                <td><span t-field="facturas.amount_total"/></td>
+                                                <td class="text-right">
+                                                    <t t-set="payments" t-value="facturas.amount_total - facturas.residual"/>
+                                                    <span t-esc="payments" t-esc-options='{"widget": "monetary", "display_currency": "o.currency_id"}'/>
+                                                </td>
+                                                <td class="text-right">
+                                                   <span t-field="facturas.residual"/>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                
+                                </div>
+                            </t>
                             <div style="line-height: 2; padding-top: 74px;">
                                 <div style="width: 50%;float: left;">
                                     <strong>_____________________________________</strong><br/>
                                     <span t-field="o.create_uid.name"/><br/>
                                     <strong>Produced By</strong> 
                                 </div>
-                                <div style="width: 50%;float: left;">
-                                    <strong>______________________________________</strong><br/>
-                                    <span t-field="o.partner_id.name"/><br/>
-                                    <strong>Beneficiary</strong>
-                                </div>
+                                <t t-if="o.payment_type == 'transfer'">
+                                    <div style="width: 50%;float: left;">
+                                        <strong>______________________________________</strong><br/>
+                                        <span t-field="o.create_uid.name"/><br/>
+                                        <strong>Responsable</strong>
+                                    </div>
+                                </t>
+                                <t t-if="o.payment_type != 'transfer'">
+                                    <div style="width: 50%;float: left;">
+                                        <strong>______________________________________</strong><br/>
+                                        <span t-field="o.partner_id.name"/><br/>
+                                        <strong>Beneficiary</strong>
+                                    </div>
+                                </t>
                             </div>
                                     
                         </div>

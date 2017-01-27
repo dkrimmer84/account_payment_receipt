@@ -11,17 +11,22 @@
                             <div style="width: 50%;float: left;">
                                 <strong>Company</strong>:<br/>
                                 <span t-field="o.company_id.name"/><br/>
-                                <strong>Nit. </strong> 
-                                <span t-field="o.company_id.partner_id.xidentification"/>-<span t-field="o.company_id.partner_id.dv"/>
+                                <t t-if="o.company_id.partner_id.xidentification">
+                                    <strong>Nit. </strong> 
+                                    <span t-field="o.company_id.partner_id.xidentification"/>-<span t-field="o.company_id.partner_id.dv"/>
+                                </t>
                             </div>
                             <div style="width: 50%;float: left;">
                                 <strong>Client</strong>:<br/>
                                 <span t-field="o.partner_id.name"/><br/>
-                                <strong>C.c.</strong>
-                                <span t-field="o.partner_id.xidentification"/>-<span t-field="o.partner_id.dv"/>
-                                
+                                <t t-if="o.company_id.partner_id.xidentification">
+                                    <strong>C.c.</strong>
+                                    <span t-field="o.partner_id.xidentification"/>
+                                    <t t-if="o.partner_id.doctype == 31">
+                                        -<span t-field="o.partner_id.dv"/>
+                                    </t>
+                                </t>
                             </div>
-
                             <div style="line-height: 90px;">
                                 <div style="width: 50%;float: left;">
                                     <strong style="float:left">Payment Method: </strong>:

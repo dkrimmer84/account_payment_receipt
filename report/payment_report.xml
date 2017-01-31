@@ -18,9 +18,9 @@
                             </div>
                             <t t-if="o.payment_type == 'transfer'">
                                 <div style="width: 50%;float: left;">
-                                <strong>Transfer to:</strong>:<br/>
-                                <span t-field="o.destination_journal_id"/><br/>
-                            </div>
+                                    <strong>Transfer to</strong>:<br/>
+                                    <span t-field="o.destination_journal_id"/><br/><br/><br/>
+                                </div>
                             </t>
                             <t t-if="o.payment_type != 'transfer'">
                                 <div style="width: 50%;float: left;">
@@ -93,7 +93,6 @@
                                 <t t-if="o.payment_type == 'transfer'">
                                     <div style="width: 50%;float: left;">
                                         <strong>______________________________________</strong><br/>
-                                        <span t-field="o.create_uid.name"/><br/>
                                         <strong>Responsable</strong>
                                     </div>
                                 </t>

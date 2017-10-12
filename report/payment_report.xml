@@ -56,6 +56,9 @@
                                                 <th>
                                                     <strong>Number Invoice</strong>
                                                 </th>
+                                               	<th>
+                                                    <strong>Factura original</strong>
+                                               	</th>
                                                 <th>
                                                     <strong>Total Invoice</strong>
                                                 </th>
@@ -70,6 +73,7 @@
                                         <tbody style="border:1px solid #000000; font-size:13px;">
                                             <tr t-foreach="o.invoice_ids" t-as="facturas">
                                                 <td><span t-field="facturas.number"/></td>
+						<td><span t-if="facturas.reference" t-field="facturas.reference"/></td>
                                                 <td><span t-field="facturas.amount_total"/></td>
                                                 <td class="text-right">
                                                     <t t-set="payments" t-value="facturas.amount_total - facturas.residual"/>

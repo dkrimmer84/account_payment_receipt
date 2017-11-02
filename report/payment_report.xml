@@ -44,7 +44,7 @@
                                 </div>
                                 <div style="width: 50%;float: left; font-size:13px;">
                                     <strong>Amount Paid</strong>
-                                    <span t-field="o.amount"/>
+                                    <span t-field="o.amount"/>    <span style="padding-left:15px;"><strong>Fecha del Pago: </strong></span><span t-field="o.payment_date"/>
                                 </div>
                             </div>
                             <t t-if="o.invoice_ids">

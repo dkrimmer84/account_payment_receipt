@@ -2,7 +2,7 @@
 <openerp>    
     <data>
         <template id="report_payment">
-            <t t-call="report.html_container">
+            <t t-call="web.html_container">
                 <t t-foreach="docs" t-as="o">
                     <t><style>
                         </style>
@@ -31,7 +31,7 @@
                                         <t t-if="o.partner_id.doctype == 31">
                                            <span t-field="o.partner_id.formatedNit"/>
                                         </t>
-					<t t-if="o.partner_id.doctype != 31">
+					                              <t t-if="o.partner_id.doctype != 31">
                                           <span t-field="o.partner_id.xidentification"/> 
                                         </t>
                                     </t>
@@ -39,7 +39,7 @@
                             </t>
                             <div style="line-height: 60px;">
                                 <div style="width: 50%;float: left; font-size:13px;">
-                                    <strong style="float:left">Payment Method: </strong>:<br />
+                                    <strong style="float:left">Payment Method: </strong>:
                                     <span t-field="o.journal_id"/>
                                 </div>
                                 <div style="width: 50%;float: left; font-size:13px;">
@@ -52,7 +52,7 @@
 
                                     <strong>Invoices</strong>
                                     
-                                    <table class="table table-condensed mb32" style="margin-top:10px;font-size:13px; border:1px solid #000000">
+                                    <table class="table table-condensed mb32" border="1" style="border-collapse: collapse; width:100%; margin-top:10px;font-size:13px; border:1px solid #000000">
                                         <thead>
                                             <tr>
                                                 <th>
@@ -79,7 +79,7 @@
                                                 <td><span t-field="facturas.amount_total"/></td>
                                                 <td class="text-right">
                                                     <t t-set="payments" t-value="facturas.amount_total - facturas.residual"/>
-                                                    <span t-esc="payments" t-esc-options='{"widget": "monetary", "display_currency": "o.currency_id"}'/>
+                                                    <span t-esc="payments" t-esc-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: &quot;o.currency_id&quot;}"/>
                                                 </td>
                                                 <td class="text-right">
                                                    <span t-field="facturas.residual"/>
@@ -110,16 +110,20 @@
                                     </div>
                                 </t>
                             </div>
-                                    
                         </div>
-                        
                     </t>
                 </t>
             </t>
+
         </template>
 
 
-        <report id="action_report_payment" model="account.payment" report_type="qweb-pdf" name="account_payment_receipt.report_payment" string="Comprobante" file="report_payment"/>
+        <report id="action_report_payment"
+                model="account.payment"
+                report_type="qweb-pdf"
+                name="account_payment_receipt.report_payment"
+                string="Comprobante"
+                file="report_payment"/>
     </data>
 
 
